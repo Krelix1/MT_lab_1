@@ -1,19 +1,30 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import MovieAPI from '../services/movieAPI';
 
 function StartScreen({navigation}) {
-  const redirectToGamePage = () => {
-    navigation.navigate('Game');
+  const [movies, setMovies] = useState([]);
+  const redirectToMoviePage = () => {
+    navigation.navigate('Movie');
   };
+
+  useEffect(() => {
+    const getMovies = async () => {
+      const res = await MovieAPI.getUpcomingMovies();
+      // console.log(res);
+      setMovies(res);
+    };
+
+    getMovies();
+  }, []);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Agaev Daniil</Text>
-
-      <Text style={styles.subTitle}>Lab 1</Text>
-
-      <TouchableOpacity style={styles.button} onPress={redirectToGamePage}>
-        <Text style={styles.buttonText}>Start Game</Text>
-      </TouchableOpacity>
+      {movies.map((movie) => (
+        <View>
+          <Text>{movie.title}</Text>
+        </View>
+      ))}
     </View>
   );
 }

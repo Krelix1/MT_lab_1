@@ -30,7 +30,7 @@ function App() {
           name="Home"
           component={StartScreen}
           options={{
-            title: 'Hello',
+            title: 'Agaev Daniil Lab 2',
             cardStyle: {
               backgroundColor: '#222222',
             },
