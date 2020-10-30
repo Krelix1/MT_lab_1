@@ -16,21 +16,13 @@ function StartScreen({navigation}) {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <FlatList
-        numColumns={'2'}
-        data={movies}
-        renderItem={({item}) => <Movie movie={item} />}
-        keyExtractor={(movie) => movie.title}
-      />
-    </View>
+    <FlatList
+      numColumns={'2'}
+      data={movies}
+      renderItem={({item}) => <Movie movie={item} />}
+      keyExtractor={(movie) => movie.title}
+    />
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#222222',
-  },
-});
 
 export default StartScreen;

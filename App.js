@@ -1,10 +1,8 @@
 import React from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import StartScreen from './screens/StartScreen.js';
-import Game from './screens/Game';
 
 const Stack = createStackNavigator();
 
@@ -20,11 +18,6 @@ function App() {
             borderBottomLeftRadius: 20,
           },
           headerTintColor: '#fff',
-          headerTitleStyle: {
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          },
         }}>
         <Stack.Screen
           name="Home"
@@ -32,18 +25,7 @@ function App() {
           options={{
             title: 'Agaev Daniil Lab 2',
             cardStyle: {
-              backgroundColor: '#222222',
-            },
-          }}
-        />
-
-        <Stack.Screen
-          name="Game"
-          component={Game}
-          options={{
-            title: 'Hello',
-            cardStyle: {
-              backgroundColor: '#222222',
+              backgroundColor: '#ffe8e8',
             },
           }}
         />
@@ -51,14 +33,5 @@ function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  app: {
-    flex: 1,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
 
 export default App;
